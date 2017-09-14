@@ -5,10 +5,13 @@ var Slider = function(){
 
    this.container = document.getElementById("fillImage");
    this.nav = document.getElementById("slider_nav");
+
    this.currentIndex = 0;//当前索引
    this.pause = false; //暂停|播放
-   this.num = this.imgs.length ;
    this.timer = null ; //定时器handler
+   this.speed = 3000; //进入下一张图片的停顿时间
+   
+   this.num = this.imgs.length ;
    this.render();
    this.listeningWindow();
 }
@@ -19,7 +22,7 @@ var Slider = function(){
 */
 Slider.prototype.play = function(index){
   var me = this;
-  var time = 3000;
+  me.speed = 3000;
   if(!me.pause){
     me.container.style.transition = "transform 0.4s ease-in-out" ;
     //切换nav
@@ -36,13 +39,13 @@ Slider.prototype.play = function(index){
       index = 0 ;
       me.container.style.transition = "none" ;
       me.changeImage(index);
-      time = 0;
+      me.speed = 0;
     }
     index++ ;
   }
   me.timer = setTimeout(function(){
     me.play(index);
-  },time)
+  },me.speed)
 }
 
 /**函数名：stopPlay

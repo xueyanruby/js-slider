@@ -1,0 +1,85 @@
+html,body{
+  width:100%;
+  height:100%;
+}
+*{
+  border:0;
+  padding: 0;
+  margin: 0;
+}
+.sliderContainer{
+  width: 660px;
+  height:220px;
+  margin:auto;
+  background-color: grey;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  .fillImage{
+    transition:transform 0.8s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    // animation: ec-marquee-move 8s steps(4) infinite ;
+    white-space:nowrap;
+    img{
+      width:660px;
+      height:220px;
+      overflow: hidden;
+    }
+  }
+  .mask{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    cursor: default;
+  }
+  .banner-mask-big {
+    width: 666px;
+    height: 42px;
+    background-size: 666px 42px;
+    background-image: url(//shared.ydstatic.com/dict/community/web_20170816/imgs/3dDVHC_big_black-to-wright.png);
+  }
+
+  span{
+    font-size: 16px;
+    color: #FFF;
+    margin-left: 20px;
+    line-height: 42px;
+  }
+  .slider-nav {
+    position: absolute;
+    right: 20px;
+    bottom: 16px;
+    li {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 8px;
+      background-color: #FFF;
+      cursor: pointer;
+      margin: 0 2px;
+    }
+    .selected{
+      width: 20px;
+      height: 8px;
+      border-radius: 8px;
+      background-color: #F03744;
+    }
+  }
+}
+// .sliderContainer:hover .fillImage{
+//   transition:none !important;
+// }
+// .sliderContainer:hover .fillImage{
+//   /*鼠标放上去的时候，动画暂停*/
+//   animation-play-state: paused;
+// }
+
+// @keyframes ec-marquee-move {
+//    0% {
+//        transform: translateX(0px);
+//    }
+//    100% {
+//        transform: translateX(-3200px);
+//    }
+// }
